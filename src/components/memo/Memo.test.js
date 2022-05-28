@@ -65,3 +65,19 @@ test(
         expect(_onEditSelect).toHaveBeenCalledWith(memoData)
     }
 )
+
+test(
+    'should a button with the text "Delete"',
+    () => {
+        render(<Memo memo={{}}/>)
+        const button = screen.getByText("Delete")
+        expect(button.tagName).toBe("BUTTON")
+    }
+)
+
+test(
+    '',
+    ()=> {
+
+    }
+)
