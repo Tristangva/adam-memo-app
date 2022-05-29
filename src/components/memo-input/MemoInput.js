@@ -1,9 +1,9 @@
 import {useState} from "react";
 
-export function MemoInput({onSubmit}) {
+export function MemoInput({onSubmit, _id = new Date().getMilliseconds()}) {
 
     const newMemo = {
-        id: new Date().getMilliseconds(),
+        id: _id,
         title: '',
         desc: '',
         date: new Date(),

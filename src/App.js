@@ -5,8 +5,11 @@ import {MemoAdd} from "./components/memo-add/MemoAdd";
 import {MemoList} from "./components/memo-list/MemoList";
 
 function App(props) {
+
+    //list of props
     const {
-        _isLoggedIn = true,
+        //  TODO - set this to false when I publish
+        _isLoggedIn = false,
         _selectedMemo = null,
         _Login = Login,
         _MemoAdd = MemoAdd,
@@ -16,6 +19,7 @@ function App(props) {
 
     } = props;
 
+    //states
     const [isLoggedIn, setIsLoggedIn] = useState(_isLoggedIn)
     const [memoList, setMemoList] = useState([])
     const [selectedMemo, setSelectedMemo] = useState(_selectedMemo);
@@ -37,6 +41,7 @@ function App(props) {
         setSelectedMemo(memo)
     }
 
+    //deletes memo by finding id and from list
     function onMemoDelete(memoToDelete) {
         setMemoList(
             [
