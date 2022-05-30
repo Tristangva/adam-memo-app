@@ -46,10 +46,10 @@ test('should show a button with text "Submit"', () => {
 
 test('should run onSubmit prop when "Submit" button is clicked passing the user input', () => {
     const _onSubmit = jest.fn()
-    render(<MemoInput onSubmit={_onSubmit} _id={4}/>)
+    render(<MemoInput onSubmit={_onSubmit} uidd={'9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d'}/>)
 
     const userInput = {
-        id: 4,
+        id: '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d',
         title: 'my title',
         desc: 'my desc',
         date: '2022-02-02',

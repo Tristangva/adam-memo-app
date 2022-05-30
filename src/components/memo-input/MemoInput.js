@@ -1,9 +1,11 @@
 import {useState} from "react";
+import { v4 as uuid } from 'uuid';
 
-export function MemoInput({onSubmit, _id = new Date().getMilliseconds()}) {
+// using uuid library to make uid
+export function MemoInput({onSubmit, uidd = uuid()}) {
 
     const newMemo = {
-        id: _id,
+        id: uidd,
         title: '',
         desc: '',
         date: new Date(),
