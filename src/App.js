@@ -3,6 +3,7 @@ import {useState} from "react";
 import {Login} from "./components/login/Login";
 import {MemoAdd} from "./components/memo-add/MemoAdd";
 import {MemoList} from "./components/memo-list/MemoList";
+import {MemoEdit} from "./components/memo-edit/MemoEdit";
 
 function App(props) {
 
@@ -15,7 +16,7 @@ function App(props) {
         _MemoAdd = MemoAdd,
         _MemoList = MemoList,
         // TODO - ADD DEFAULT COMP
-        _MemoEdit,
+        _MemoEdit = MemoEdit,
 
     } = props;
 
@@ -41,7 +42,12 @@ function App(props) {
         setSelectedMemo(memo)
     }
 
-    //deletes memo by finding id and from list
+    /*
+    * deletes memo by finding id and from list
+    * Spreads the memo list to filter
+    * Filter array so that it returns a filtered array
+    * uses unique id of each memo
+    */
     function onMemoDelete(memoToDelete) {
         setMemoList(
             [
@@ -55,9 +61,12 @@ function App(props) {
     if (!isLoggedIn) {
         return <_Login onSubmit={onLogin}/>
     }
+    function onEdit(memo){
+        console.log(memo)
+    }
 
     if (selectedMemo) {
-        return <_MemoEdit/>
+        return <_MemoEdit memo={selectedMemo} onSubmit={onEdit}/>
     }
 
     return <>

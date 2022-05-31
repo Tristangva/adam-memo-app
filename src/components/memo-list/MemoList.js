@@ -11,7 +11,8 @@ export function MemoList({list, onEditSelect, onMemoDelete, _Memo = Memo}) {
     const pendingList = list.filter(m => !m.finished)
     const finishedList = list.filter(m => m.finished)
 
-    return <>
+    //  TODO  -  Make Pending and Finished headers only show up if lists are populated
+    return <div>
         <h1>Pending</h1>
         {
             pendingList.sort(sortMemoList)
@@ -22,5 +23,6 @@ export function MemoList({list, onEditSelect, onMemoDelete, _Memo = Memo}) {
             finishedList.sort(sortMemoList)
                 .map((memoData, idx) => <_Memo key={idx} memo={memoData} onEditSelect={onEditSelect} onMemoDelete={onMemoDelete}/>)
         }
-    </>
+    </div>
+
 }

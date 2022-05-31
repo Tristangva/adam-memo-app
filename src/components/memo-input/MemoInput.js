@@ -2,20 +2,24 @@ import {useState} from "react";
 import { v4 as uuid } from 'uuid';
 
 // using uuid library to make uid
-export function MemoInput({onSubmit, uidd = uuid()}) {
-
+export function MemoInput(props) {
     const newMemo = {
-        id: uidd,
+        id: uuid(),
         title: '',
         desc: '',
         date: new Date(),
         finished: false
     }
-    const [formState, setFormState] = useState(newMemo);
 
+    const {
+        onSubmit,
+        memo = newMemo
+    } = props
+    // make sure use state is always recalled. Never make it call the same
+    const [formState, setFormState] = useState(memo);
     function onFormSubmit(event) {
         event.preventDefault()
-        onSubmit({...formState})
+        onSubmit({...formState}) // bad for on submit
         setFormState(newMemo)
     }
 
