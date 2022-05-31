@@ -15,7 +15,6 @@ function App(props) {
         _Login = Login,
         _MemoAdd = MemoAdd,
         _MemoList = MemoList,
-        // TODO - ADD DEFAULT COMP
         _MemoEdit = MemoEdit,
 
     } = props;
@@ -61,12 +60,19 @@ function App(props) {
     if (!isLoggedIn) {
         return <_Login onSubmit={onLogin}/>
     }
-    function onEdit(memo){
-        console.log(memo)
+    function onMemoEdit(newMemo){
+        onEditSelect(null)
+        setMemoList(
+            memoList.map((memo)=>{
+                if (memo.id !== newMemo.id) {
+                    return memo
+                }
+                return newMemo
+        }))
     }
 
     if (selectedMemo) {
-        return <_MemoEdit memo={selectedMemo} onSubmit={onEdit}/>
+        return <_MemoEdit memo={selectedMemo} onSubmit={onMemoEdit}/>
     }
 
     return <>
