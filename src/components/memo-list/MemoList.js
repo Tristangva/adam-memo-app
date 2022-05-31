@@ -16,12 +16,16 @@ export function MemoList({list, onEditSelect, onMemoDelete, _Memo = Memo}) {
         <h1>Pending</h1>
         {
             pendingList.sort(sortMemoList)
-                .map((memoData, idx) => <_Memo key={idx} memo={memoData} onEditSelect={onEditSelect} onMemoDelete={onMemoDelete}/>)
+                .map((memoData, idx) => <div key={idx} className={'m-3'}>
+                    <_Memo  memo={memoData} onEditSelect={onEditSelect} onMemoDelete={onMemoDelete}/>
+                </div>)
         }
         <h1>Finished</h1>
         {
             finishedList.sort(sortMemoList)
-                .map((memoData, idx) => <_Memo key={idx} memo={memoData} onEditSelect={onEditSelect} onMemoDelete={onMemoDelete}/>)
+                .map((memoData, idx) => <div key={idx} className={'m-3'}>
+                    <_Memo  memo={memoData} onEditSelect={onEditSelect} onMemoDelete={onMemoDelete}/>
+                </div>)
         }
     </div>
 

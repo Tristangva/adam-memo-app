@@ -10,7 +10,7 @@ function App(props) {
     //list of props
     const {
         //  TODO - set this to false when I publish
-        _isLoggedIn = true,
+        _isLoggedIn = false,
         _selectedMemo = null,
         _Login = Login,
         _MemoAdd = MemoAdd,
@@ -25,6 +25,7 @@ function App(props) {
     const [selectedMemo, setSelectedMemo] = useState(_selectedMemo);
 
     function onLogin(creds) {
+        console.log(creds)
         if (creds.username === 'admin' && creds.password === 'pass') {
             setIsLoggedIn(true)
         }
@@ -58,7 +59,9 @@ function App(props) {
     }
 
     if (!isLoggedIn) {
-        return <_Login onSubmit={onLogin}/>
+        return  <div className={'d-flex justify-content-center p-5'}>
+            <_Login onSubmit={onLogin}/>
+        </div>
     }
     function onMemoEdit(newMemo){
         onEditSelect(null)
