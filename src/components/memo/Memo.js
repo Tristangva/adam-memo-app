@@ -4,7 +4,7 @@ import {BsFillCheckCircleFill, BsFillCircleFill} from "react-icons/bs";
 
 export function Memo({memo, onEditSelect, onMemoDelete}) {
 
-    return <Card>
+    return <Card border={'dark'}>
         <Card.Header as={'h5'}>
             <span>{memo.title}</span>
             <span className={'memo-date'}>

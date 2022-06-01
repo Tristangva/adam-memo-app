@@ -33,7 +33,7 @@ export function Login({onSubmit}) {
                 <Form.Label>Password</Form.Label>
                 <Form.Control onChange={onPasswordChange} value={password} type={'password'} placeholder={"password"}/>
             </Form.Group>
-            <Button variant={'primary'} type={"submit"}>Login</Button>
+            <Button variant={'secondary'} type={"submit"}>Login</Button>
         </Form>
     </Card>
 

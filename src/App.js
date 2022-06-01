@@ -10,7 +10,7 @@ function App(props) {
     //list of props
     const {
         //  TODO - set this to false when I publish
-        _isLoggedIn = false,
+        _isLoggedIn = true,
         _selectedMemo = null,
         _Login = Login,
         _MemoAdd = MemoAdd,
@@ -79,7 +79,9 @@ function App(props) {
     }
 
     return <>
-        <_MemoAdd onMemoAdd={onMemoAdd}/>
+        <div className={'d-flex justify-content-center p-5'}>
+            <_MemoAdd onMemoAdd={onMemoAdd}/>
+        </div>
         <_MemoList list={memoList} onEditSelect={onEditSelect} onMemoDelete={onMemoDelete}/>
     </>
 }
