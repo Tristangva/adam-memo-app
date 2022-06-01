@@ -1,6 +1,13 @@
 import {Memo} from "../memo/Memo";
+import {useSelector} from "react-redux";
 
-export function MemoList({list, onEditSelect, onMemoDelete, _Memo = Memo}) {
+// get a value from redux store to use it
+// we are going to use selector
+export function MemoList({onEditSelect, onMemoDelete, _Memo = Memo}) {
+
+    const list = useSelector((state)=>{
+        return state.memoList
+    })
 
     function sortMemoList(a, b) {
         if (a.title < b.title) return -1;
